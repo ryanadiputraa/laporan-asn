@@ -24,7 +24,7 @@ class PersonalData extends Component {
 
   render() {
     return(
-      <Card className="personal-data-container mt-3">
+      <Card className="personal-data-container">
         <CardBody>
           <CardTitle><h3 className="text-center">Data PNS</h3></CardTitle>
           <form >
