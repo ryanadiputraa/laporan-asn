@@ -24,16 +24,16 @@ class PersonalData extends Component {
 
   render() {
     return(
-      <Card className="personal-data-container mt-5">
+      <Card className="personal-data-container mt-3">
         <CardBody>
-          <CardTitle><h3>Data PNS</h3></CardTitle>
+          <CardTitle><h3 className="text-center">Data PNS</h3></CardTitle>
           <form >
             <input type="text" placeholder="Nama" id="name" onChange={ this.setInputtoState } />
             <input type="number" placeholder="NIP" id="NIP" onChange={ this.setInputtoState }/>
             <input type="text" placeholder="Jabatan" id="pos" onChange={ this.setInputtoState }/>
             <input type="text" placeholder="Nama atasan langsung" id="bossName" onChange={ this.setInputtoState }/>
             <input type="text" placeholder="Jabatan atasan langsung" id="bossPos" onChange={ this.setInputtoState }/>
-            <button className="btn btn-outline-primary" onClick={(e) => {
+            <button className="btn btn-primary" onClick={(e) => {
                 e.preventDefault();
                 this.props.savePersonalData(this.state);
                 console.log(this.props)

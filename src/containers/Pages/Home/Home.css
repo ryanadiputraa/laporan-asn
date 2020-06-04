@@ -1,0 +1,11 @@
+@media screen and (min-width: 960px) {
+  .navbar {
+    padding: 10px 180px;
+  }
+  .navbar-brand {
+    margin-right: 760px;
+  }
+  .nav-link {
+    margin-right: 20px;
+  }
+}
