@@ -4,7 +4,7 @@
   margin: 0 auto;
 }
 
-form {
+.form {
   text-align: center;
 }
 input {
@@ -40,7 +40,7 @@ label {
 .time-label {
   grid-column: 2/3;
 }
-.start-time {
+#startTime {
   grid-column: 1/2;
   grid-row: 2;
 }
@@ -48,7 +48,7 @@ label {
   grid-column: 2/3;
   grid-row: 2;
 }
-.end-time {
+#endTime {
   grid-column: 3/4;
   grid-row: 2;
 }
@@ -63,7 +63,7 @@ label {
   grid-row: 5;
 }
 /* info */
-.info {
+#info {
   grid-column: 1/4;
   grid-row: 4;
 }

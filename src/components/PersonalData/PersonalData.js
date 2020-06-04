@@ -36,7 +36,6 @@ class PersonalData extends Component {
             <button className="btn btn-primary" onClick={(e) => {
                 e.preventDefault();
                 this.props.savePersonalData(this.state);
-                console.log(this.props)
               }}>SIMPAN</button>
           </form>
         </CardBody>
