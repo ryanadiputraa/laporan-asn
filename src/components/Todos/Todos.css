@@ -1,27 +1,8 @@
-.todos-container {
-  width: 90%;
-  box-shadow: 0 0 .5em .1em #ccc;
-  margin: 0 auto;
+.date-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-
-.form {
-  text-align: center;
-}
-input {
-  text-align: center;
-  padding: 5px;
-  border-radius: 4px;
-}
-
-button {
-  align-self: center;
-  text-transform: uppercase;
-}
-label {
-  font-weight: bold;
-  font-size: 1.1em;
-}
-
 #date {
   width: 60%;
   margin: 10px auto;
@@ -30,40 +11,4 @@ label {
 #date-label {
   font-weight: bold;
   font-size: 1.2em;
-}
-.todos-field {
-  display: grid;
-  gap: 10px;
-  grid-template-columns: 1fr .3fr 1fr;
-}
-/* time */
-.time-label {
-  grid-column: 2/3;
-}
-#startTime {
-  grid-column: 1/2;
-  grid-row: 2;
-}
-.split-time {
-  grid-column: 2/3;
-  grid-row: 2;
-}
-#endTime {
-  grid-column: 3/4;
-  grid-row: 2;
-}
-/* todo */
-#todo {
-  grid-column: 1/4;
-  grid-row: 3;
-  padding: 10px;
-}
-.add-todo {
-  grid-column: 2/3;
-  grid-row: 5;
-}
-/* info */
-#info {
-  grid-column: 1/4;
-  grid-row: 4;
 }

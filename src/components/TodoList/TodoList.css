@@ -1,0 +1,41 @@
+.todo-list-container {
+  width: 90%;
+  margin: 10px auto;
+  box-shadow: 0 0 .5em .1em #ccc;
+}
+.todo-list-item {
+  display: grid;
+  grid-template-columns: 1fr .2fr;
+  background: #222;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+.title {
+  text-align: center;
+}
+.todo-item, .delete-item {
+  display: flex;
+}
+span {
+  margin: 5px;
+}
+span.todo{
+  color: #fff;
+}
+span.time{
+  color: #2f2;
+}
+span.info{
+  color: #aaaaff;
+}
+.empty-todo {
+  text-align: center;
+  color: #f22;
+}
+
+@media screen and (max-width: 765px) {
+  .todo-item {
+    flex-direction: column;
+  }
+}
