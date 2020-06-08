@@ -9,24 +9,12 @@ import './Todos.css';
 class Todos extends Component {
 
   state = {
-    date: "",
-    todos: [
-      {
-        id: 1, 
-        startTime: "12:00",
-        endTime: "13:00",
-        todo: "Melaksanakan tugas lainnya",
-        info: "camat"
-      }
-    ]
+    todos: []
   }
   
   setDateInput = (e) => {
-    let stateName = e.target.id;
     let stateValue = e.target.value;
-    this.setState({
-      [stateName]: stateValue
-    })
+    this.props.setDate(stateValue);
   }
    
   deleteTodo = (id) => {
@@ -39,16 +27,28 @@ class Todos extends Component {
   submitTodo = (state) => {
     let newState = [...this.state.todos, state]
     this.setState({ todos: newState });
-    this.props.addTodos(this.state);
+    this.props.addTodos(state);
   }
 
   printPDF = (state) => {
-    const doc = new jsPDF();
-    doc.autoTable({
-      head: [['Tanggal','Waktu','Uraian Kegiatan','Keterangan']],
-      body: []
+    const doc = new jsPDF('landscape');
+    const formData = this.props.state;
+    let bodyData = [];
+    let i = 0;
+
+    formData.todos.map(todo => {
+      bodyData[i] = [todo.id, '', `${todo.startTime} - ${todo.endTime}`, todo.todo, todo.info];
+      i++;
     })
-    doc.save(this.state.date);
+    bodyData[0] = [formData.todos[0].id, formData.date, `${formData.todos[0].startTime} - ${formData.todos[0].endTime}`, formData.todos[0].todo, formData.todos[0].info]
+
+    doc.autoTable({
+      head: [['No','Tanggal','Waktu','Uraian Kegiatan','Keterangan','Validasi Pimpinan']],
+      body: bodyData
+    })
+
+    doc.save(formData.date);
+    
   }
 
   render() {
@@ -73,7 +73,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addTodos: state => dispatch({ type: 'ADD_TODO', input: state })
+    addTodos: todos => dispatch({ type: 'ADD_TODO', input: todos }),
+    setDate: date => dispatch({ type: 'SET_DATE', input: date })
   }
 }
 

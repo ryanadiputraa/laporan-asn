@@ -1,11 +1,33 @@
-@media screen and (min-width: 960px) {
+.navbar {
+  padding: 10px 10em;
+}
+.navbar-brand {
+  margin-right: 36em;
+}
+.nav-link {
+  margin-right: 20px;
+}
+
+@media screen and (max-width: 1160px) {
+  .navbar-brand {
+    margin-right: 22em;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .navbar-brand {
+    margin-right: 16em;
+  }
+}
+
+@media screen and (max-width: 768px) {
   .navbar {
-    padding: 10px 180px;
+    padding: 10px;
   }
   .navbar-brand {
-    margin-right: 760px;
+    margin-right: 0;
   }
   .nav-link {
-    margin-right: 20px;
+    margin-right: 0;
   }
 }

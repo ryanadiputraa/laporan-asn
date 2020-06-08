@@ -5,7 +5,7 @@ import './AddTodo.css';
 class AddTodo extends Component {
 
   state = {
-    id: 0,
+    id: 1,
     startTime: null,
     endTime: null,
     todo: null,

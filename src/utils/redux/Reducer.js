@@ -1,10 +1,16 @@
 const globalState = {
+  date: '',
   data: {},
   todos: []
 }
 
 const rootReducer = (state = globalState, action) => {
   switch(action.type) {
+    case 'SET_DATE':
+    return {
+      ...state,
+      date: action.input
+    }
     case 'ADD_DATA':
       return {
         ...state,
