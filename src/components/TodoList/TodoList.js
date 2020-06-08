@@ -1,8 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Card, CardTitle, CardBody } from 'reactstrap';
 import './TodoList.css';
 
-const TodosList = ({ todos, deleteTodo, printPDF }) => {
+const TodosList = (props) => {
+
+  const todos = props.state.todos;
 
   const todoList = todos.length ? (
     todos.map(todo => {
@@ -14,7 +17,7 @@ const TodosList = ({ todos, deleteTodo, printPDF }) => {
             <span className="info">({ todo.info })</span>
           </div>
           <div className="delete-item">
-            <button onClick={() => deleteTodo(todo.id) } className="btn btn-danger delete-btn">HAPUS</button>
+            <button onClick={() => props.deleteTodo(todo.id) } className="btn btn-danger delete-btn">HAPUS</button>
           </div>
         </div>
       )
@@ -27,13 +30,26 @@ const TodosList = ({ todos, deleteTodo, printPDF }) => {
     <div className="todo-list-container">
       <Card>
         <CardBody className="todos-card">
-          <CardTitle><h3 className="title">Daftar uraian kegiatan</h3></CardTitle>
+          <CardTitle><h3 className="title" onClick={() => console.log(props)}>Daftar uraian kegiatan</h3></CardTitle>
           { todoList }
-          <button className="btn btn-danger print-btn" onClick={() => printPDF(todos)}>Cetak PDF</button> 
+          <button className="btn btn-danger print-btn" onClick={() => props.printPDF()}>Cetak PDF</button> 
         </CardBody>
       </Card>
     </div>
   )
 }
 
-export default TodosList;
+const mapStateToProps = state => {
+  return {
+    state
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    deleteTodo: id => dispatch({ type: 'DELETE_TODO', input: id }),
+    printPDF: () => dispatch({ type: 'PRINT_PDF' })
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodosList);

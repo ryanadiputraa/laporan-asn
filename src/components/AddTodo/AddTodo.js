@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Card, CardTitle, CardBody } from 'reactstrap';
 import './AddTodo.css';
 
@@ -39,7 +40,7 @@ class AddTodo extends Component {
                 <input type="text" placeholder="keterangan" id="info" onChange={ this.setInputtoState }/>
                 <button className="btn btn-primary add-todo" onClick={() => {
                   this.generateNewId();
-                  this.props.submitTodo(this.state);
+                  this.props.addTodos(this.state);
                 }}>Tambah</button>
               </div>
             </CardBody>
@@ -49,4 +50,17 @@ class AddTodo extends Component {
   }
 }
 
-export default AddTodo;
+const mapStateToProps = state => {
+  return {
+    state
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    addTodos: todos => dispatch({ type: 'ADD_TODO', input: todos })
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddTodo);
