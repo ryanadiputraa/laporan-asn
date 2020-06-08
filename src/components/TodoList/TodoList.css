@@ -3,6 +3,11 @@
   margin: 10px auto;
   box-shadow: 0 0 .5em .1em #ccc;
 }
+.todos-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .todo-list-item {
   display: grid;
   grid-template-columns: 1fr .2fr;
@@ -32,6 +37,9 @@ span.info{
 .empty-todo {
   text-align: center;
   color: #f22;
+}
+.print-btn {
+  margin: 5px auto;
 }
 
 @media screen and (max-width: 765px) {

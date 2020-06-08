@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Home from '../Pages/Home/Home';
+import './App.css';
 
 function App() {
   return (

@@ -13,6 +13,7 @@ import InputFields from '../InputFields/InputFields';
 import About from '../About/About';
 import Help from '../Help/Help';
 import './Home.css';
+import Footer from '../../../components/Footer/Footer';
 
 function Home() {
 
@@ -28,10 +29,10 @@ function Home() {
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
               <NavItem>
-                <NavLink href="/about/">About</NavLink>
+                <NavLink href="/about/">Tentang</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/Help/">Help</NavLink>
+                <NavLink href="/Help/">Bantuan</NavLink>
               </NavItem>
             </Nav>
           </Collapse>
@@ -41,6 +42,7 @@ function Home() {
         <Route path="/about/" component={ About } />
         <Route path="/help/" component={ Help } />
       </Router>
+      <Footer/>
     </Fragment>
   )
 }

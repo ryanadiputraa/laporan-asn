@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardTitle, CardBody } from 'reactstrap';
 import './TodoList.css';
 
-const TodosList = ({ todos, deleteTodo }) => {
+const TodosList = ({ todos, deleteTodo, printPDF }) => {
 
   const todoList = todos.length ? (
     todos.map(todo => {
@@ -26,9 +26,10 @@ const TodosList = ({ todos, deleteTodo }) => {
   return(
     <div className="todo-list-container">
       <Card>
-        <CardBody>
+        <CardBody className="todos-card">
           <CardTitle><h3 className="title">Daftar uraian kegiatan</h3></CardTitle>
-          { todoList } 
+          { todoList }
+          <button className="btn btn-danger print-btn" onClick={() => printPDF(todos)}>Cetak PDF</button> 
         </CardBody>
       </Card>
     </div>
