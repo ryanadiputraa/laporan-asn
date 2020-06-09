@@ -30,7 +30,7 @@ const TodosList = (props) => {
     <div className="todo-list-container">
       <Card>
         <CardBody className="todos-card">
-          <CardTitle><h3 className="title" onClick={() => console.log(props)}>Daftar uraian kegiatan</h3></CardTitle>
+          <CardTitle><h3 className="title">Daftar uraian kegiatan</h3></CardTitle>
           { todoList }
           <button className="btn btn-danger print-btn" onClick={() => props.printPDF()}>Cetak PDF</button> 
         </CardBody>

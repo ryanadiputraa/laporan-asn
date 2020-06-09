@@ -15,7 +15,7 @@ function PersonalData(props) {
       <CardBody>
         <CardTitle><h3 className="text-center">Data PNS</h3></CardTitle>
         <form >
-          <input onClick={() => console.log(props.state) } type="text" placeholder="Nama" id="name" onChange={(e) => setData(e) } />
+          <input type="text" placeholder="Nama" id="name" onChange={(e) => setData(e) } />
           <input type="number" placeholder="NIP" id="NIP" onChange={(e) => setData(e) }/>
           <input type="text" placeholder="Jabatan" id="pos" onChange={(e) => setData(e) }/>
           <input type="text" placeholder="Nama atasan langsung" id="bossName" onChange={(e) => setData(e) }/>
