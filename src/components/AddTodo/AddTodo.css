@@ -2,66 +2,41 @@
   width: 90%;
   box-shadow: 0 0 .5em .1em #ccc;
   margin: 0 auto;
-}
-
-.form {
   text-align: center;
+}
+label {
+  font-weight: 400;
+  font-size: 1.1em;
+  margin-right: 1em;
 }
 input {
   text-align: center;
   padding: 5px;
   border-radius: 4px;
+  margin-bottom: 10px;
 }
-
+textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
 button {
   align-self: center;
   text-transform: uppercase;
 }
-label {
-  font-weight: bold;
-  font-size: 1.1em;
-}
-.todos-field {
-  display: grid;
-  gap: 10px;
-  grid-template-columns: 1fr .8fr 1fr;
-}
-/* time */
-.time-label {
-  grid-column: 2/3;
-}
-#startTime {
-  grid-column: 1/2;
-  grid-row: 2;
-}
-.split-time {
-  grid-column: 2/3;
-  grid-row: 2;
-}
-#endTime {
-  grid-column: 3/4;
-  grid-row: 2;
-}
-/* todo */
-#todo {
-  grid-column: 1/4;
-  grid-row: 3;
-  padding: 10px;
-}
-.add-todo {
-  grid-column: 2/3;
-  grid-row: 5;
-  width: 60%;
-  margin: 0 auto;
-}
-/* info */
 #info {
-  grid-column: 1/4;
-  grid-row: 4;
+  display: block;
+  margin: 10px auto;
+}
+.todos-field { 
+  height: 15em; 
 }
 
-@media screen and (max-width: 768px) {
-  .add-todo {
-    width: 100%;
+@media screen and (min-width: 990px) {
+  #time {
+    width: 15%;
+  }
+  #info {
+    width: 50%;
   }
 }

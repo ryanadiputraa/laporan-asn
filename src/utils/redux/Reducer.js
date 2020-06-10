@@ -3,7 +3,14 @@ import 'jspdf-autotable';
 
 const globalState = {
   date: '',
-  data: {},
+  data: {
+    name: null,
+    NIP: null,
+    pos: null,
+    bossName: null,
+    bossPos: null,
+    city: null
+  },
   todos: []
 }
 
@@ -45,10 +52,10 @@ const rootReducer = (state = globalState, action) => {
         let i = 0;
   
         state.todos.map(todo => {
-          bodyData[i] = [todo.id, '', `${todo.startTime} - ${todo.endTime}`, todo.todo, todo.info];
+          bodyData[i] = [todo.id, '', todo.time, todo.todo, todo.info];
           return i++
         })
-        bodyData[0] = [state.todos[0].id, state.date, `${state.todos[0].startTime} - ${state.todos[0].endTime}`, state.todos[0].todo, state.todos[0].info]
+        bodyData[0] = [state.todos[0].id, state.date, state.todos[0].time, state.todos[0].todo, state.todos[0].info]
         
         doc.text('LAPORAN KEGIATAN HARIAN ASN', 100, 10);
         

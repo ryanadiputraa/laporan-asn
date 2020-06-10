@@ -12,7 +12,7 @@ const TodosList = (props) => {
       return (
         <div className="todo-list-item" key={ todo.id }>
           <div className="todo-item">
-            <span className="time">{ todo.startTime } - { todo.endTime }</span>
+            <span className="time">{ todo.time }</span>
             <span className="todo">{ todo.todo }</span>
             <span className="info">({ todo.info })</span>
           </div>

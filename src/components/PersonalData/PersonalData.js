@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './PersonalData.css';
-import { Card, CardTitle, CardBody } from 'reactstrap';
+import { Alert, Card, CardTitle, CardBody } from 'reactstrap';
 import { connect } from 'react-redux';
 
 function PersonalData(props) {
@@ -10,9 +10,13 @@ function PersonalData(props) {
     data[e.target.id] = e.target.value
   }
 
+  const [visible, setVisible] = useState(false);
+  const onDismiss = () => setVisible(false);
+
   return(
     <Card className="personal-data-container">
       <CardBody>
+        <Alert color="success" isOpen={visible} toggle={onDismiss}><p className="text-center mb-0">Data ASN tersimpan</p></Alert>
         <CardTitle><h3 className="text-center">Data PNS</h3></CardTitle>
         <form >
           <input type="text" placeholder="Nama" id="name" onChange={(e) => setData(e) } />
@@ -23,6 +27,7 @@ function PersonalData(props) {
           <input type="text" placeholder="Kota" id="city" onChange={(e) => setData(e) } />
           <button className="btn btn-primary" onClick={(e) => {
             e.preventDefault();
+            setVisible(true);
             props.savePersonalData(data);
           }}>SIMPAN</button>
         </form>
@@ -33,7 +38,7 @@ function PersonalData(props) {
 
 const mapStateToProps = state => {
   return {
-    state
+    state: state.data
   }
 }
 
