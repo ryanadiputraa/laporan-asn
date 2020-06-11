@@ -35,7 +35,7 @@ class AddTodo extends Component {
                 <textarea id="todo" cols="30" rows="4" placeholder="uraian kegiatan..." onChange={ this.setInputtoState }/>
                 <input type="text" placeholder="keterangan" id="info" onChange={ this.setInputtoState }/>
                 <button className="btn btn-primary add-todo" onClick={() => {
-                  window.scrollTo(0, 400);
+                  window.scrollTo(0, 540);
                   this.generateNewId();
                   this.props.addTodos(this.state);
                 }}>Tambah</button>

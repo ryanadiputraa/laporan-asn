@@ -78,8 +78,9 @@ const rootReducer = (state = globalState, action) => {
         })
           
         doc.save(state.date);
+        alert('Pencetakan berhasil! Silahkan periksa folder unduhan anda');
       } catch(err) {
-        alert('Mohon isi form dengan benar')
+        alert('Mohon isi Data ASN')
       }
       return state
 

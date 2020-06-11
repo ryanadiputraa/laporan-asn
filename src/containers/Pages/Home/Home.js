@@ -24,7 +24,7 @@ function Home() {
     <Fragment>
       <Router>
         <Navbar className="navbar" color="dark" dark expand="md">
-          <NavbarBrand href="/">Laporan PNS</NavbarBrand>
+          <NavbarBrand href="/">Laporan ASN</NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
