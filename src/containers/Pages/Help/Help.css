@@ -1,0 +1,23 @@
+.help ul{
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+.section-img {
+  width: 50%;
+}
+.help ul li {
+  list-style: disc;
+}
+
+
+@media (max-width: 1160px) {
+  .section-img {
+    width: 80%;
+  }  
+}
+@media (max-width: 768px) {
+  .section-img {
+    width: 100%;
+  }  
+}
