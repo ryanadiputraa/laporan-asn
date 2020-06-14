@@ -4,8 +4,16 @@
 .navbar-brand {
   margin-right: 36em;
 }
-.nav-link {
+.nav-main {
+  color: #fff;
+}
+.nav-item {
+  color: #fff;
   margin-right: 20px;
+}
+.nav-main:hover, .nav-item:hover {
+  color: #ddd;
+  text-decoration: none;
 }
 
 @media screen and (max-width: 1160px) {
@@ -27,7 +35,8 @@
   .navbar-brand {
     margin-right: 0;
   }
-  .nav-link {
+  .nav-item {
+    color: #fff;
     margin-right: 0;
   }
 }

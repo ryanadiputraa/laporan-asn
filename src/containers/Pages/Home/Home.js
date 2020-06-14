@@ -5,10 +5,9 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavItem,
-  NavLink
+  NavItem
 } from 'reactstrap';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import InputFields from '../InputFields/InputFields';
 import About from '../About/About';
 import Help from '../Help/Help';
@@ -24,15 +23,17 @@ function Home() {
     <Fragment>
       <Router>
         <Navbar className="navbar" color="dark" dark expand="md">
-          <NavbarBrand href="/">Laporan ASN</NavbarBrand>
+          <NavbarBrand>
+            <NavLink exact to="/" className="nav-main">Laporan ASN</NavLink>
+          </NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
               <NavItem>
-                <NavLink href="/about/">Tentang</NavLink>
+                <NavLink to="/about/" className="nav-item">Tentang</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/Help/">Bantuan</NavLink>
+                <NavLink to="/help/" className="nav-item">Bantuan</NavLink>
               </NavItem>
             </Nav>
           </Collapse>
