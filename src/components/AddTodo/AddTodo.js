@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Card, CardTitle, CardBody } from 'reactstrap';
 import './AddTodo.css';
+import { ADD_TODO } from '../../utils/redux/Action';
 
 class AddTodo extends Component {
 
@@ -24,6 +25,10 @@ class AddTodo extends Component {
     this.setState({ id: this.state.id + 1 })    
   }
 
+  clearInput = (...inputs) => {
+    inputs.map(input => input.value = '')
+  }
+
   render() {
     return(
           <Card className="todos-container">
@@ -38,6 +43,11 @@ class AddTodo extends Component {
                   window.scrollTo(0, 540);
                   this.generateNewId();
                   this.props.addTodos(this.state);
+                  this.clearInput(
+                    document.querySelector('#time'),
+                    document.querySelector('#todo'),
+                    document.querySelector('#info')
+                  )
                 }}>Tambah</button>
               </div>
             </CardBody>
@@ -46,17 +56,8 @@ class AddTodo extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    state
-  }
-}
+const mapDispatchToProps = dispatch => ({
+  addTodos: todo => dispatch(ADD_TODO(todo))
+})
 
-const mapDispatchToProps = dispatch => {
-  return {
-    addTodos: todos => dispatch({ type: 'ADD_TODO', input: todos })
-  }
-}
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(AddTodo);
+export default connect(null, mapDispatchToProps)(AddTodo);

@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './PersonalData.css';
 import { Alert, Card, CardTitle, CardBody } from 'reactstrap';
 import { connect } from 'react-redux';
+import { SET_DATA } from '../../utils/redux/Action';
 
 function PersonalData(props) {
 
@@ -52,16 +53,8 @@ function PersonalData(props) {
   )
 }
 
-const mapStateToProps = state => {
-  return {
-    state: state.data
-  }
-}
+const mapDispatchToProps = dispatch => ({
+  savePersonalData: data => dispatch(SET_DATA(data)) 
+})
 
-const mapDispatchToProps = dispatch => {
-  return {
-    savePersonalData: (input) => dispatch({ type: 'SET_DATA', input: input })
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(PersonalData);
+export default connect(null, mapDispatchToProps)(PersonalData);

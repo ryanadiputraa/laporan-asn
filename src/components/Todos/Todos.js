@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import TodoList from '../TodoList/TodoList';
 import AddTodo from '../AddTodo/AddTodo';
 import './Todos.css';
+import { SET_DATE } from '../../utils/redux/Action';
 
 const Todos = (props) => {
 
@@ -18,16 +19,8 @@ const Todos = (props) => {
   )
 }
 
-const mapStateToProps = state => {
-  return {
-    state
-  }
-}
+const mapDispatchToProps = dispatch => ({
+  setDate: date => dispatch(SET_DATE(date)) 
+})
 
-const mapDispatchToProps = dispatch => {
-  return {
-    setDate: date => dispatch({ type: 'SET_DATE', input: date })
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Todos);
+export default connect(null, mapDispatchToProps)(Todos);

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Card, CardTitle, CardBody } from 'reactstrap';
 import './TodoList.css';
+import { DELETE_TODO, PRINT_PDF } from '../../utils/redux/Action';
 
 const TodosList = (props) => {
 
@@ -39,17 +40,11 @@ const TodosList = (props) => {
   )
 }
 
-const mapStateToProps = state => {
-  return {
-    state
-  }
-}
+const mapStateToProps = state => ({ state })
 
-const mapDispatchToProps = dispatch => {
-  return {
-    deleteTodo: id => dispatch({ type: 'DELETE_TODO', input: id }),
-    printPDF: () => dispatch({ type: 'PRINT_PDF' })
-  }
-}
+const mapDispatchToProps = dispatch => ({
+  deleteTodo: id => dispatch(DELETE_TODO(id)),
+  printPDF: () => dispatch(PRINT_PDF())
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodosList);
