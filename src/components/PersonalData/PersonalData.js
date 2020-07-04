@@ -6,13 +6,24 @@ import { SET_DATA } from '../../utils/redux/Action';
 
 function PersonalData(props) {
 
-  let [data, setData] = useState({});
-  setData = (e) => {
-    data[e.target.id] = e.target.value
+  let [state, setState] = useState({
+    name: '',
+    NIP: '',
+    pos: '',
+    bossName: '',
+    bossPos: '',
+    city: ''
+  })
+
+  const setData = (e) => {
+    setState({
+      ...state,
+      [e.target.id]: e.target.value
+    })
   }
 
   const checkData = () => {
-    if(data.name === undefined || data.name === '' || data.NIP === undefined || data.NIP === '' || data.pos === undefined || data.pos === '' || data.bossName === undefined || data.bossName === '' || data.bossPos === undefined || data.bossPos === '' || data.city === undefined || data.city === '') {
+    if(state.name === '' || state.NIP === '' || state.pos === '' || state.bossName === '' || state.bossPos === '' || state.city === '') {
       setValid('danger');
       setMessage('Mohon isi data ASN dengan lengkap');
     } else {
@@ -21,7 +32,7 @@ function PersonalData(props) {
     }
     setVisible(true);
   }
-  
+
   const[valid, setValid] = useState();
 
   const[validMessage, setMessage] = useState();
@@ -45,7 +56,7 @@ function PersonalData(props) {
             e.preventDefault();
             window.scrollTo(0, 0);
             checkData();
-            props.savePersonalData(data);
+            props.savePersonalData(state);
           }}>SIMPAN</button>
         </form>
       </CardBody>
