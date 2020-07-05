@@ -1,3 +1,13 @@
 .App {
-  background-color: #fcfcfc;
+  background-color: #f5f5ff;
+}
+
+input, textarea {
+  background-color: #fafaff;
+}
+
+
+button:hover {
+  transition: .3s;
+  transform: scale(1.1);
 }
