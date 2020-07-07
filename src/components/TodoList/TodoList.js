@@ -11,29 +11,29 @@ const TodosList = (props) => {
   const todoList = todos.length ? (
     todos.map(todo => {
       return (
-        <div className="todo-list-item" key={ todo.id }>
+        <div className="todo-list-item" key={todo.id}>
           <div className="todo-item">
-            <span className="time">{ todo.time }</span>
-            <span className="todo">{ todo.todo }</span>
-            <span className="info">({ todo.info })</span>
+            <span className="time">{todo.time}</span>
+            <span className="todo">{todo.todo}</span>
+            <span className="info">({todo.info})</span>
           </div>
           <div className="delete-item">
-            <button onClick={() => props.deleteTodo(todo.id) } className="btn btn-danger delete-btn">HAPUS</button>
+            <button onClick={() => props.deleteTodo(todo.id)} className="btn btn-danger delete-btn">HAPUS</button>
           </div>
         </div>
       )
     })
   ) : (
-    <p className="empty-todo">Sikahkan isi uraian kegiatan pada kolom agenda kegiatan di bawah</p>
-  )
+      <p className="empty-todo">Sikahkan isi uraian kegiatan pada kolom agenda kegiatan di bawah</p>
+    )
 
-  return(
+  return (
     <div className="todo-list-container">
       <Card>
         <CardBody className="todos-card">
-          <CardTitle><h3 className="title">Daftar uraian kegiatan</h3></CardTitle>
-          { todoList }
-          <button className="btn btn-danger print-btn" onClick={() => props.printPDF()}>Cetak PDF</button> 
+          <CardTitle><h3 className="text-center">Daftar uraian kegiatan</h3></CardTitle>
+          {todoList}
+          <button className="btn btn-danger print-btn" onClick={() => props.printPDF()}>Cetak PDF</button>
         </CardBody>
       </Card>
     </div>
