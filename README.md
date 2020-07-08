@@ -1,3 +1,11 @@
-## Laporan ASN
+# Laporan ASN
 
-Web app for goverment employees to create a todo report, convert the input fields to pdf. Using ReactJS libraries on frontend, jspdf and jspdf-autotable to convert input fields into pdf.
+Web app for goverment employees to create daily report. Convert user input into pdf format.
+Using Redux to store data and pass it into other React component, jspdf-autable for formatting table, and jspdf to convert data input pdf.
+
+## Technologies used
+
+- React
+- Redux
+- jspdf
+- jspdf-autotable 
