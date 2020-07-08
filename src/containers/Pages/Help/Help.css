@@ -21,3 +21,8 @@
     width: 100%;
   }  
 }
+@media (max-width: 580px) {
+  .help {
+    padding-top: 30px;
+  }
+}

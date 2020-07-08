@@ -12,3 +12,9 @@ button:hover {
   transition: .3s;
   transform: scale(1.1);
 }
+
+@media screen and (max-width: 580px) {
+  .App {
+    padding-top: 20px;
+  }
+}
