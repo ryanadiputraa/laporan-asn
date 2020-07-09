@@ -1,28 +1,40 @@
+
+
 .help ul{
   display: flex;
   flex-direction: column;
   width: 60%;
 }
+
+.web-section-img {
+  width: 100%;
+}
+
+.section-text {
+  font-size: 1.2em;
+  font-weight: 600;
+  margin-bottom: 60px;
+}
+
 .section-img {
-  width: 50%;
+  display: none;
 }
 .help ul li {
   list-style: disc;
 }
 
-
-@media (max-width: 1160px) {
+@media screen and (max-width: 425px) {
+  .web-section-img {
+    display: none;
+  }
   .section-img {
-    width: 80%;
-  }  
-}
-@media (max-width: 768px) {
-  .section-img {
+    display: flex;
     width: 100%;
-  }  
+  }
 }
-@media (max-width: 580px) {
+
+@media screen and (max-width: 580px) {
   .help {
-    padding-top: 30px;
+    padding-top: 50px;
   }
 }
