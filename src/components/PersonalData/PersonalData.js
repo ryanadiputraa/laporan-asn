@@ -53,7 +53,7 @@ function PersonalData(props) {
         </Alert>
         <CardTitle><h3 className="text-center">Data ASN</h3></CardTitle>
         <form >
-          <input type="text" placeholder="Nama Lengkap" id="name" onChange={(e) => setData(e)} />
+          <input type="text" placeholder="Nama lengkap" id="name" onChange={(e) => setData(e)} />
           <input type="number" placeholder="NIP" id="NIP" onChange={(e) => setData(e)} />
           <input type="text" placeholder="Jabatan" id="pos" onChange={(e) => setData(e)} />
           <input type="text" placeholder="Nama atasan langsung" id="bossName" onChange={(e) => setData(e)} />

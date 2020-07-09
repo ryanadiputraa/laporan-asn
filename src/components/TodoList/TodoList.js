@@ -27,13 +27,23 @@ const TodosList = (props) => {
       <p className="empty-todo">Sikahkan isi uraian kegiatan pada kolom agenda kegiatan di bawah</p>
     )
 
+  const validData = state => {
+    if (state.name !== null || state.NIP !== null || state.pos !== null || state.bossName !== null || state.bossPos !== null || state.city !== null) {
+      return true
+    }
+    return false
+  }
+
   return (
     <div className="todo-list-container">
       <Card>
         <CardBody className="todos-card">
-          <CardTitle><h3 className="text-center">Daftar uraian kegiatan</h3></CardTitle>
+          <CardTitle><h3 className="text-center">Daftar Uraian Kegiatan</h3></CardTitle>
           {todoList}
-          <button className="btn btn-danger print-btn" onClick={() => props.printPDF()}>Cetak PDF</button>
+          <button className="btn btn-danger print-btn" onClick={() => {
+            if (validData(props.state.data)) props.printPDF();
+            else alert('Mohon isi data ASN');
+          }}>Cetak PDF</button>
         </CardBody>
       </Card>
     </div>

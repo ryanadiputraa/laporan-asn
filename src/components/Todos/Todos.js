@@ -16,7 +16,6 @@ const Todos = (props) => {
       date.push(fullDate[i]);
     }
     date = date.join('');
-    console.log(date);
 
     // year
     let year = [];
@@ -24,7 +23,6 @@ const Todos = (props) => {
       year.push(fullDate[i])
     }
     year = year.join('');
-    console.log(year);
 
     // month
     let month = []

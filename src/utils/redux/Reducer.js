@@ -79,7 +79,7 @@ const rootReducer = (state = globalState, action) => {
         doc.save(state.date);
         alert('Pencetakan berhasil! Silahkan periksa folder unduhan anda');
       } catch (err) {
-        alert('Mohon isi data dengan benar')
+        alert('Daftar uraian kegiatan kosong! Silahkan isi uraian kegiatan anda')
       }
       return state
 
