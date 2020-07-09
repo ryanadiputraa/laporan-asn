@@ -100,7 +100,6 @@ const rootReducer = (state = globalState, action) => {
           alert: 2
         }
       }
-      return state
 
     default:
       return state
