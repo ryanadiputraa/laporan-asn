@@ -30,18 +30,25 @@ function AddTodo(props) {
   }
 
   const clearInput = (...inputs) => {
-    inputs.map(input => input.value = '')
+    inputs.map(input => {
+      input.value = null;
+      return setState({
+        time: null,
+        todo: null,
+        info: null
+      })
+    })
   }
 
-  return(
+  return (
     <Card className="todos-container">
       <CardBody>
         <CardTitle><h3 className="text-center">Agenda Kegiatan</h3></CardTitle>
         <div className="todos-field">
           <label htmlFor="time" className="time-label">Waktu:</label>
-          <input type="time" id="time" onChange={ setInputtoState }/>     
-          <textarea id="todo" cols="30" rows="4" placeholder="uraian kegiatan..." onChange={ setInputtoState }/>
-          <input type="text" placeholder="keterangan" id="info" onChange={ setInputtoState }/>
+          <input type="time" id="time" onChange={setInputtoState} />
+          <textarea id="todo" cols="30" rows="4" placeholder="uraian kegiatan..." onChange={setInputtoState} />
+          <input type="text" placeholder="keterangan" id="info" onChange={setInputtoState} />
           <button className="btn btn-primary add-todo" onClick={() => {
             window.scrollTo(0, 540);
             generateNewId();
@@ -50,8 +57,8 @@ function AddTodo(props) {
               document.querySelector('#time'),
               document.querySelector('#todo'),
               document.querySelector('#info')
-              )
-            }}>Tambah</button>
+            )
+          }}>Tambah</button>
         </div>
       </CardBody>
     </Card>

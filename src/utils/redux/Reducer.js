@@ -15,10 +15,9 @@ const globalState = {
 }
 
 const rootReducer = (state = globalState, action) => {
-  switch(action.type) {
-    
+  switch (action.type) {
+
     case 'SET_DATE':
-      action.input = action.input.split('-').reverse().join('-');
       return {
         ...state,
         date: action.input
@@ -29,7 +28,7 @@ const rootReducer = (state = globalState, action) => {
         ...state,
         data: action.input
       }
-    
+
     case 'ADD_TODO':
       return {
         ...state,
@@ -50,21 +49,21 @@ const rootReducer = (state = globalState, action) => {
         const doc = new jsPDF('landscape');
         let bodyData = [];
         let i = 0;
-  
+
         state.todos.map(todo => {
           bodyData[i] = [todo.id, '', todo.time, todo.todo, todo.info];
           return i++
         })
         bodyData[0] = [state.todos[0].id, state.date, state.todos[0].time, state.todos[0].todo, state.todos[0].info]
-        
+
         doc.text('LAPORAN KEGIATAN HARIAN ASN', 100, 10);
-        
-        doc.setFontSize(12);  
+
+        doc.setFontSize(12);
         doc.text(`Nama/NIP \t\t\t\t\t: ${state.data.name} / ${state.data.NIP}`, 20, 18);
         doc.text(`Jabatan \t\t\t\t\t    : ${state.data.pos}`, 20, 24);
         doc.text(`Nama atasan langsung \t\t    : ${state.data.bossName}`, 20, 30);
         doc.text(`Jabatan atasan langsung \t\t : ${state.data.bossPos}`, 20, 36);
-        doc.text(`${state.data.city}, ${state.date}`, 220, 170);
+        doc.text(`${state.data.city}, ${state.date}`, 216, 170);
         doc.setFontSize(10);
         doc.text('Pembuat laporan', 224, 174);
         doc.setFontSize(12);
@@ -73,19 +72,19 @@ const rootReducer = (state = globalState, action) => {
         doc.autoTable({
           styles: { halign: 'center', fontSize: 12 },
           startY: 40,
-          head: [['No','Tanggal','Waktu','Uraian Kegiatan','Keterangan','Validasi Pimpinan']],
+          head: [['No', 'Tanggal', 'Waktu', 'Uraian Kegiatan', 'Keterangan', 'Validasi Pimpinan']],
           body: bodyData
         })
-          
+
         doc.save(state.date);
         alert('Pencetakan berhasil! Silahkan periksa folder unduhan anda');
-      } catch(err) {
-        alert('Mohon isi Data ASN')
+      } catch (err) {
+        alert('Mohon isi data dengan benar')
       }
       return state
 
     default:
-      return state  
+      return state
   }
 }
 

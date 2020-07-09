@@ -10,11 +10,9 @@ import rootReducer from './utils/redux/Reducer';
 const reduxStore = createStore(rootReducer)
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={ reduxStore }>
-      <App />
-    </Provider>
-  </React.StrictMode>,
+  <Provider store={reduxStore}>
+    <App />
+  </Provider>,
   document.getElementById('root')
 );
 
