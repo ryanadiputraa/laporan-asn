@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Card, CardTitle, CardBody } from 'reactstrap';
 import './TodoList.css';
-import { DELETE_TODO, PRINT_PDF } from '../../utils/redux/Action';
+import { DELETE_TODO, PRINT_PDF, INVALID_DATA } from '../../utils/redux/Action';
 
 const TodosList = (props) => {
 
@@ -42,7 +42,7 @@ const TodosList = (props) => {
           {todoList}
           <button className="btn btn-danger print-btn" onClick={() => {
             if (validData(props.state.data)) props.printPDF();
-            else alert('err ')
+            else props.invalidData();
           }}>Cetak PDF</button>
         </CardBody>
       </Card>
@@ -54,7 +54,8 @@ const mapStateToProps = state => ({ state })
 
 const mapDispatchToProps = dispatch => ({
   deleteTodo: id => dispatch(DELETE_TODO(id)),
-  printPDF: () => dispatch(PRINT_PDF())
+  printPDF: () => dispatch(PRINT_PDF()),
+  invalidData: () => dispatch(INVALID_DATA())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodosList);

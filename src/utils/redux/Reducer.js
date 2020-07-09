@@ -12,7 +12,7 @@ const globalState = {
     city: null
   },
   todos: [],
-  alert: 2
+  alert: 0
 }
 
 const rootReducer = (state = globalState, action) => {
@@ -90,9 +90,15 @@ const rootReducer = (state = globalState, action) => {
         })
 
         doc.save(state.date);
-        alert('Pencetakan berhasil! Silahkan periksa folder unduhan anda');
+        return {
+          ...state,
+          alert: 3
+        }
       } catch (err) {
-        alert('Daftar uraian kegiatan kosong! Silahkan isi uraian kegiatan anda')
+        return {
+          ...state,
+          alert: 2
+        }
       }
       return state
 
