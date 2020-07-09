@@ -11,7 +11,8 @@ const globalState = {
     bossPos: null,
     city: null
   },
-  todos: []
+  todos: [],
+  alert: 2
 }
 
 const rootReducer = (state = globalState, action) => {
@@ -42,6 +43,18 @@ const rootReducer = (state = globalState, action) => {
       return {
         ...state,
         todos
+      }
+
+    case 'INVALID_DATA':
+      return {
+        ...state,
+        alert: 1
+      }
+
+    case 'CLOSE_ALERT':
+      return {
+        ...state,
+        alert: 0
       }
 
     case 'PRINT_PDF':

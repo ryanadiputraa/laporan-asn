@@ -3,11 +3,11 @@ import PersonalData from '../../../components/PersonalData/PersonalData';
 import Todos from '../../../components/Todos/Todos';
 
 const InputFields = () => {
-  return(
+  return (
     <div className="input-fields container" style={{ padding: '0' }}>
       <PersonalData />
       <Todos />
-    </div>  
+    </div>
   )
 }
 

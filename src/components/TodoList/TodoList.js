@@ -42,7 +42,7 @@ const TodosList = (props) => {
           {todoList}
           <button className="btn btn-danger print-btn" onClick={() => {
             if (validData(props.state.data)) props.printPDF();
-            else alert('Mohon isi data ASN');
+            else alert('err ')
           }}>Cetak PDF</button>
         </CardBody>
       </Card>

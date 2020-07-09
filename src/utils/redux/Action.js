@@ -31,3 +31,21 @@ export const PRINT_PDF = () => {
     type: 'PRINT_PDF',
   }
 }
+
+export const INVALID_DATA = () => {
+  return {
+    type: 'INVALID_DATA'
+  }
+}
+
+export const INVALID_TODO = () => {
+  return {
+    type: 'INVALID_TODO'
+  }
+}
+
+export const CLOSE_ALERT = () => {
+  return {
+    type: 'CLOSE_ALERT'
+  }
+}
