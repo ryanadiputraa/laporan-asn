@@ -1,0 +1,31 @@
+.login {
+  box-shadow: 0 0 .5em .1em #ccc;
+  padding: 0;
+}
+
+.login form {
+  justify-content: flex-start;
+}
+
+.login form {
+  height: 260px;
+  padding: 0 20px;
+}
+
+#nip, #password {
+  width: 100%;
+}
+
+.login .form-group:nth-child(2) {
+  align-self: center;
+}
+
+.login small {
+  align-self: flex-end;
+}
+
+@media screen and (max-width: 580px) {
+  .login {
+    padding-top: 50px;
+  }
+}

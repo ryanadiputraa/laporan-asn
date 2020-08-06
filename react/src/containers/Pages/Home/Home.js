@@ -5,6 +5,7 @@ import InputFields from "../InputFields/InputFields";
 import About from "../About/About";
 import Help from "../Help/Help";
 import Footer from "../../../components/Footer/Footer";
+import Login from "../Login/Login";
 
 function Home() {
 
@@ -15,6 +16,7 @@ function Home() {
         <Route exact path="/" component={InputFields} />
         <Route path="/about/" component={About} />
         <Route path="/help/" component={Help} />
+        <Route path="/login/" component={Login} />
       </Router>
       <Footer />
     </Fragment>

@@ -1,6 +1,6 @@
 .navbar {
   align-items: center;
-  padding: 0 14%;
+  padding: 8px 14% 0 14%;
   background-color: #323238;
   box-shadow: 0 2px 6px 1px #828288;
 }
@@ -11,22 +11,26 @@
 }
 
 .title {
-  font-size: 28px;
+  font-size: 24px;
   color: #fff;
-  padding-bottom: 14px;
+  padding-bottom: 8px;
+}
+
+.main-link .active {
+  border-bottom: none;
 }
 
 .nav-links {
   display: flex;
-  width: 22%;
+  width: 200px;
   justify-content: space-between;
   align-items: center;
 }
 
 .nav-link {
-  font-size: 22px;
+  font-size: 18px;
   color: #fff;
-  padding-bottom: 20px;
+  padding-bottom: 12px;
 }
 
 .title:hover, .nav-link:hover {
@@ -40,7 +44,7 @@
 
 .hamburger {
   height: 40px;
-  width: 16%;
+  width: 55px;
   position: relative;
   top: -5px;
   display: none;
@@ -63,17 +67,18 @@
 @media screen and (max-width: 768px) {
   
   .navbar {
-    padding: 0 7%;
+    padding: 8px 7% 0 7%;
   }
   .nav-links {
-    width: 36%;
+    width: 250px;
   }
 }
 
 @media screen and (max-width: 580px) {
   
   .navbar {
-    padding: 6px 5%;
+    transition: .4s;
+    padding: 14px 5%;
     height: 62px;
     overflow: hidden;
     position: absolute;
@@ -84,20 +89,17 @@
 
   .container {
     margin-top: 64px;
-    transition: .6s;
+    transition: .4s;
   }
 
   .active {
     border-bottom: none;
   }
 
-  .main-link {
-    margin-right: 25%;
-  }
-
   .nav-links {
     width: 100%;
     flex-direction: column;
+    margin-top: 8px;  
   }
   
   .nav-link {
@@ -120,7 +122,7 @@
 
   /* hamburger listener */
   .active-navbar {
-    transition: .6s;
+    transition: .4s;
     height: 200px;
   }
   
@@ -140,12 +142,6 @@
     transition: .2s;
     animation: fadeOut .2s ease forwards;
   }  
-}
-
-@media screen and (max-width: 350px) {
-  .main-link {
-    margin-right: 18%;
-  }
 }
 
 /* animations */
