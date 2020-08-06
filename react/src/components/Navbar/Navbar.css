@@ -1,4 +1,8 @@
 .navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 9999;
   align-items: center;
   padding: 8px 14% 0 14%;
   background-color: #323238;
@@ -81,10 +85,7 @@
     padding: 14px 5%;
     height: 62px;
     overflow: hidden;
-    position: absolute;
-    z-index: 999;
     width: 100%;
-    top: 0;
   }
 
   .container {

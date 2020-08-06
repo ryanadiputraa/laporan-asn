@@ -4,7 +4,7 @@ import Todos from '../../../components/Todos/Todos';
 
 const InputFields = () => {
   return (
-    <div className="input-fields container" style={{ padding: '0' }}>
+    <div className="input-fields container">
       <PersonalData />
       <Todos />
     </div>

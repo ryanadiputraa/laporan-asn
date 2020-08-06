@@ -1,6 +1,9 @@
 .login {
-  box-shadow: 0 0 .5em .1em #ccc;
   padding: 0;
+}
+
+.login .card {
+  box-shadow: 0 0 .5em .1em #ccc;
 }
 
 .login form {

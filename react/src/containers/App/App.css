@@ -7,11 +7,15 @@ body {
   flex-direction: column;
 }
 
-.input-fields,
-.about,
-.help,
-.login {
+#root .input-fields,
+#root .about,
+#root .help,
+#root .login {
   flex: 1 0 auto;
+}
+
+.input-fields, .about, .help, .login {
+  padding-top: 60px;
 }
 
 .footer {
@@ -79,5 +83,14 @@ button:hover {
 @media screen and (max-width: 580px) {
   .App {
     padding-top: 20px;
+  }
+  .input-fields, .about {
+    padding-top: 0px;
+  }
+  .help {
+    padding-top: 30px;
+  }
+  .login {
+    padding: 30px 5%;
   }
 }

@@ -12,6 +12,7 @@
 
 # production
 /build
+/react/build
 
 # misc
 .vscode
