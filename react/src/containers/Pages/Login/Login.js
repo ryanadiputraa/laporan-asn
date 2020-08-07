@@ -1,19 +1,44 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useEffect, useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './Login.css';
-import { Card, CardTitle, CardBody } from 'reactstrap';
+import { Alert, Card, CardTitle, CardBody } from 'reactstrap';
 
 
 const Login = () => {
+
+  useEffect(() => {
+    if (window.error_message !== 'None') {
+      setValid('danger');
+      setMessage(window.error_message);
+      setVisible(true);
+      window.error_message = 'None'
+    }
+  }, [])
+
+  const [valid, setValid] = useState();
+  const [validMessage, setMessage] = useState();
+
+  const [visible, setVisible] = useState(false);
+  const onDismiss = () => setVisible(false);
+
   return (
     <Fragment>
       <div className="login container mt-4">
         <Card>
+        <Alert
+          style={{ "transition": ".3s" }}
+          color={valid}
+          isOpen={visible}
+          toggle={onDismiss}><p
+            className="text-center mb-0"
+          >{validMessage}</p>
+        </Alert>
           <CardTitle><h2 className="text-center mt-3">Login</h2></CardTitle>
           <CardBody>
             <div className="content-section">
-              <form action="/" method="POST">
+              <form action="/login" method="POST">
                 <fieldset className="form-group">
+                  <input type="text" name="formtype" id="formtype" defaultValue="login" style={{ 'display':'none' }}/>
                   <div className="form-group">
                     <input type="text" placeholder="NIP Pegawai" name="nip" id="nip"/>
                     <div className="invalid-feedback">

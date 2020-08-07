@@ -9,6 +9,7 @@
 
 # testing
 /coverage
+/flask/__pycache__
 
 # production
 /build

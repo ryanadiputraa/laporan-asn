@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './PersonalData.css';
 import { Alert, Card, CardTitle, CardBody } from 'reactstrap';
 import { connect } from 'react-redux';
@@ -14,6 +14,27 @@ function PersonalData(props) {
     bossPos: '',
     city: ''
   })
+
+  useEffect(() => {
+    if (window.nip !== 'None') {
+      setState({
+        name: window.name,
+        NIP: window.nip,
+        pos: window.position,
+        bossName: window.boss_name,
+        bossPos: window.boss_position,
+        city: window.region 
+      })
+    }
+    props.savePersonalData({
+      name: window.name,
+      NIP: window.nip,
+      pos: window.position,
+      bossName: window.boss_name,
+      bossPos: window.boss_position,
+      city: window.region
+    })
+  }, [window.nip])
 
   const setData = (e) => {
     setState({
@@ -34,7 +55,6 @@ function PersonalData(props) {
   }
 
   const [valid, setValid] = useState();
-
   const [validMessage, setMessage] = useState();
 
   const [visible, setVisible] = useState(false);
@@ -53,12 +73,27 @@ function PersonalData(props) {
         </Alert>
         <CardTitle><h3 className="text-center">Data ASN</h3></CardTitle>
         <form >
-          <input type="text" placeholder="Nama lengkap" id="name" onChange={(e) => setData(e)} />
-          <input type="number" placeholder="NIP" id="NIP" onChange={(e) => setData(e)} />
-          <input type="text" placeholder="Jabatan" id="pos" onChange={(e) => setData(e)} />
-          <input type="text" placeholder="Nama atasan langsung" id="bossName" onChange={(e) => setData(e)} />
-          <input type="text" placeholder="Jabatan atasan langsung" id="bossPos" onChange={(e) => setData(e)} />
-          <input type="text" placeholder="Kota" id="city" onChange={(e) => setData(e)} />
+            
+          { window.nip !== 'None' ? (
+            <fieldset>
+              <input type="text" placeholder="Nama lengkap" defaultValue={window.name} id="name" onChange={(e) => setData(e)} />
+              <input type="number" placeholder="NIP" defaultValue={window.nip} id="NIP" onChange={(e) => setData(e)} />
+              <input type="text" placeholder="Jabatan" defaultValue={window.position} id="pos" onChange={(e) => setData(e)} />
+              <input type="text" placeholder="Nama atasan langsung" defaultValue={window.boss_name} id="bossName" onChange={(e) => setData(e)} />
+              <input type="text" placeholder="Jabatan atasan langsung" defaultValue={window.boss_position} id="bossPos" onChange={(e) => setData(e)} />
+              <input type="text" placeholder="Kota" defaultValue={window.region} id="city" onChange={(e) => setData(e)} /> 
+            </fieldset> 
+          ) : (
+            <fieldset>
+              <input type="text" placeholder="Nama lengkap" id="name" onChange={(e) => setData(e)} />
+              <input type="number" placeholder="NIP" id="NIP" onChange={(e) => setData(e)} />
+              <input type="text" placeholder="Jabatan" id="pos" onChange={(e) => setData(e)} />
+              <input type="text" placeholder="Nama atasan langsung" id="bossName" onChange={(e) => setData(e)} />
+              <input type="text" placeholder="Jabatan atasan langsung" id="bossPos" onChange={(e) => setData(e)} />
+              <input type="text" placeholder="Kota" id="city" onChange={(e) => setData(e)} />
+            </fieldset>
+          )}
+
           <button className="btn btn-primary" onClick={(e) => {
             e.preventDefault();
             window.scrollTo(0, 0);

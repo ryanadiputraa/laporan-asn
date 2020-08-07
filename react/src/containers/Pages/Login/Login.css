@@ -7,16 +7,18 @@
 }
 
 .login form {
-  justify-content: flex-start;
-}
-
-.login form {
+  display: flex;
+  flex-direction: column;
   height: 260px;
   padding: 0 20px;
 }
 
 #nip, #password {
   width: 100%;
+}
+
+.login .form-check input {
+  width: auto;
 }
 
 .login .form-group:nth-child(2) {
