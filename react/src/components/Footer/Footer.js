@@ -7,7 +7,7 @@ const Footer = () => {
 
   return (
     <div className="footer mt-5">
-      <h4 className="text-center">Bagikan aplikasi</h4>
+      <h4 className="text-center">Bagikan Aplikasi</h4>
       <div className="text-center social-share-links">
         <ul>
           <li><a href={'https://www.facebook.com/sharer/sharer.php?=' + webUrl} className="facebook" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-f fa-2x"></i></a></li>

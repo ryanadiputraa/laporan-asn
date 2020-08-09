@@ -16,7 +16,7 @@ const Register = () => {
     let password = document.querySelector('#password').value;
     let confirm_password = document.querySelector('#confirm_password').value;
     
-    if (nip.length === 18 && name.length > 2 && name.length < 100 && position.length > 2 && position.length < 100 && boss_name.length > 2 && boss_name.length < 100 && boss_position.length > 2 && boss_position.length < 100 && region.length > 2 && region.length < 50 && password.length > 2 && password.length < 20 && password === confirm_password) {
+    if (nip.length === 18 && name.length > 1 && name.length < 100 && position.length > 1 && position.length < 100 && boss_name.length > 1 && boss_name.length < 100 && boss_position.length > 1 && boss_position.length < 100 && region.length > 1 && region.length < 50 && password.length > 1 && password.length < 20 && password === confirm_password) {
       submitButton.disabled = false;
     } else {
       submitButton.disabled = true;

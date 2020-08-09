@@ -76,7 +76,7 @@ const rootReducer = (state = globalState, action) => {
         doc.text(`Jabatan \t\t\t\t\t    : ${state.data.pos}`, 20, 24);
         doc.text(`Nama atasan langsung \t\t    : ${state.data.bossName}`, 20, 30);
         doc.text(`Jabatan atasan langsung \t\t : ${state.data.bossPos}`, 20, 36);
-        doc.text(`${state.data.city}, ${state.date}`, 216, 170);
+        doc.text(`${state.data.city}, ${state.date}`, 218, 170);
         doc.setFontSize(10);
         doc.text('Pembuat laporan', 224, 174);
         doc.setFontSize(12);

@@ -51,11 +51,10 @@ def index(path):
     elif request.form['formtype'] == 'login':
       nip = request.form['nip']
       password = request.form['password']
-      
-      # validate account
-      if User.query.filter_by(nip=nip).first() is not None and password == User.query.filter_by(nip=nip).first().password:
-        user = User.query.filter_by(nip=nip).first()
-        return redirect(url_for('index', name=user.name, nip=user.nip, position=user.position, boss_name=user.boss_name, boss_position=user.boss_position, region=user.region))
+      account = User.query.filter_by(nip=nip).first()
+
+      if account is not None and password == account.password:
+        return redirect(url_for('index', name=account.name, nip=account.nip, position=account.position, boss_name=account.boss_name, boss_position=account.boss_position, region=account.region))
 
       return render_template('index.html', error_message="Akun tidak ditemukan, mohon periksa kembali NIP dan Kata Sandi anda")
 
