@@ -15,12 +15,14 @@ input {
   padding: 5px;
   border-radius: 4px;
   margin-bottom: 10px;
+  border: 1px solid black;
 }
 textarea {
   display: block;
   width: 100%;
   margin-bottom: 10px;
   padding: 10px;
+  border: 1px solid black;  
 }
 button {
   align-self: center;

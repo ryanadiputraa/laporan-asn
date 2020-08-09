@@ -38,8 +38,8 @@ def index(path):
       password = request.form['password']
       name = request.form['name']
       position = request.form['position']
-      boss_name = request.form['boss-name']
-      boss_position = request.form['boss-position']
+      boss_name = request.form['boss_name']
+      boss_position = request.form['boss_position']
       region = request.form['region']
 
       new_account = User(nip=nip, password=password, name=name, position=position, boss_name=boss_name, boss_position=boss_position, region=region)

@@ -14,7 +14,7 @@ const Footer = () => {
           <li><a href={'whatsapp://send?text=' + webUrl}><i className="fab fa-whatsapp fa-2x"></i></a></li>
         </ul>
       </div>
-      <p className="text-center">© {new Date().getFullYear()} Ryan Adi Putra</p>
+      <p className="text-center">Copyright © {new Date().getFullYear()} - Ryan Adi Putra</p>
     </div>
   )
 }

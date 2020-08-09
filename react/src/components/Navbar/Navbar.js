@@ -28,14 +28,14 @@ const Navbar = () => {
         <div className="ham"></div>
       </div>
       <div className="nav-links">
-        <NavLink className="nav-link" to="/about" onClick={() => {
-          toggleNavbar();
-          toggleHam();
-        }}>Tentang</NavLink>
         <NavLink className="nav-link" to="/help" onClick={() => {
           toggleNavbar();
           toggleHam();
         }}>Bantuan</NavLink>
+        <NavLink className="nav-link" to="/register" onClick={() => {
+          toggleNavbar();
+          toggleHam();
+        }}>Daftar</NavLink>
         <NavLink className="nav-link" to="/login" onClick={() => {
           toggleNavbar();
           toggleHam();

@@ -40,16 +40,10 @@ const Login = () => {
                 <fieldset className="form-group">
                   <input type="text" name="formtype" id="formtype" defaultValue="login" style={{ 'display':'none' }}/>
                   <div className="form-group">
-                    <input type="text" placeholder="NIP Pegawai" name="nip" id="nip"/>
-                    <div className="invalid-feedback">
-                      <span></span>
-                    </div> 
+                    <input type="number" placeholder="NIP" name="nip" id="nip"/>
                   </div>
                   <div className="form-group">
-                    <input type="text" placeholder="Kata sandi" name="password" id="password"/>
-                    <div className="invalid-feedback">
-                      <span></span>
-                    </div>
+                    <input type="password" placeholder="Kata sandi" name="password" id="password"/>
                   </div>
                   <div className="form-check">
                     <input type="checkbox" className="form-check-input" name="remember" id="remember"/>
