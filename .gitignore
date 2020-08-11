@@ -10,6 +10,7 @@
 # testing
 /coverage
 /flask/__pycache__
+/flask/laporanasn/__pycache__
 
 # production
 /build
