@@ -12,4 +12,4 @@ class User(db.Model):
   
 
   def __repr__(self):
-    return f'(name: {self.name}, nip: {self.nip})'
+    return f"(name: {self.name}, nip: {self.nip})"

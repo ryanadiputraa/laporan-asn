@@ -1,5 +1,5 @@
 from flask import render_template, request, redirect, url_for
-from laporanasn import app
+from laporanasn import app, db, bcrypt
 from laporanasn.models import User
 
 
@@ -11,13 +11,14 @@ def index(path):
     if request.form['formtype'] == 'register':
       nip = request.form['nip']
       password = request.form['password']
+      hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
       name = request.form['name']
       position = request.form['position']
       boss_name = request.form['boss_name']
       boss_position = request.form['boss_position']
       region = request.form['region']
 
-      new_account = User(nip=nip, password=password, name=name, position=position, boss_name=boss_name, boss_position=boss_position, region=region)
+      new_account = User(nip=nip, password=hashed_password, name=name, position=position, boss_name=boss_name, boss_position=boss_position, region=region)
 
       db.session.add(new_account)
       db.session.commit()
@@ -28,7 +29,7 @@ def index(path):
       password = request.form['password']
       account = User.query.filter_by(nip=nip).first()
 
-      if account is not None and password == account.password:
+      if account is not None and bcrypt.check_password_hash(account.password, password):
         return redirect(url_for('index', name=account.name, nip=account.nip, position=account.position, boss_name=account.boss_name, boss_position=account.boss_position, region=account.region))
 
       return render_template('index.html', error_message="Akun tidak ditemukan, mohon periksa kembali NIP dan Kata Sandi anda")
