@@ -16,7 +16,7 @@ function PersonalData(props) {
   })
 
   useEffect(() => {
-    if (window.nip !== 'None') {
+    if (window.nip) {
       setState({
         name: window.name,
         NIP: window.nip,
@@ -60,11 +60,6 @@ function PersonalData(props) {
   const [visible, setVisible] = useState(false);
   const onDismiss = () => setVisible(false);
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 3bfa89707f490ad7c74898a35d716f6d0e11b0e7
   return (
     <Card className="personal-data-container">
       <CardBody>
@@ -78,36 +73,15 @@ function PersonalData(props) {
         </Alert>
         <CardTitle><h3 className="text-center">Data ASN</h3></CardTitle>
         <form >
-            
-          { window.nip !== 'None' ? (
-            <fieldset>
-<<<<<<< HEAD
-              <input type="text" placeholder="Nama lengkap" defaultValue={state.name} id="name" onChange={(e) => setData(e)} />
-              <input type="number" placeholder="NIP" defaultValue={state.NIP} id="NIP" onChange={(e) => setData(e)} />
-              <input type="text" placeholder="Jabatan" defaultValue={state.pos} id="pos" onChange={(e) => setData(e)} />
-              <input type="text" placeholder="Nama atasan langsung" defaultValue={state.bossName} id="bossName" onChange={(e) => setData(e)} />
-              <input type="text" placeholder="Jabatan atasan langsung" defaultValue={state.bossPos} id="bossPos" onChange={(e) => setData(e)} />
-              <input type="text" placeholder="Kota" defaultValue={state.city} id="city" onChange={(e) => setData(e)} /> 
-=======
-              <input type="text" placeholder="Nama lengkap" defaultValue={window.name} id="name" onChange={(e) => setData(e)} />
-              <input type="number" placeholder="NIP" defaultValue={window.nip} id="NIP" onChange={(e) => setData(e)} />
-              <input type="text" placeholder="Jabatan" defaultValue={window.position} id="pos" onChange={(e) => setData(e)} />
-              <input type="text" placeholder="Nama atasan langsung" defaultValue={window.boss_name} id="bossName" onChange={(e) => setData(e)} />
-              <input type="text" placeholder="Jabatan atasan langsung" defaultValue={window.boss_position} id="bossPos" onChange={(e) => setData(e)} />
-              <input type="text" placeholder="Kota" defaultValue={window.region} id="city" onChange={(e) => setData(e)} /> 
->>>>>>> 3bfa89707f490ad7c74898a35d716f6d0e11b0e7
-            </fieldset> 
-          ) : (
-            <fieldset>
-              <input type="text" placeholder="Nama lengkap" id="name" onChange={(e) => setData(e)} />
-              <input type="number" placeholder="NIP" id="NIP" onChange={(e) => setData(e)} />
-              <input type="text" placeholder="Jabatan" id="pos" onChange={(e) => setData(e)} />
-              <input type="text" placeholder="Nama atasan langsung" id="bossName" onChange={(e) => setData(e)} />
-              <input type="text" placeholder="Jabatan atasan langsung" id="bossPos" onChange={(e) => setData(e)} />
-              <input type="text" placeholder="Kota" id="city" onChange={(e) => setData(e)} />
-            </fieldset>
-          )}
-
+          <fieldset>
+            <input type="text" id="formtype" name="formtype" defaultValue="personaldata" style={{'display':'none'}}/>
+            <input type="text" placeholder="Nama lengkap" defaultValue={state.name} id="name" onChange={(e) => setData(e)} />
+            <input type="number" placeholder="NIP" defaultValue={state.NIP} id="NIP" onChange={(e) => setData(e)} />
+            <input type="text" placeholder="Jabatan" defaultValue={state.pos} id="pos" onChange={(e) => setData(e)} />
+            <input type="text" placeholder="Nama atasan langsung" defaultValue={state.bossName} id="bossName" onChange={(e) => setData(e)} />
+            <input type="text" placeholder="Jabatan atasan langsung" defaultValue={state.bossPos} id="bossPos" onChange={(e) => setData(e)} />
+            <input type="text" placeholder="Kota" defaultValue={state.city} id="city" onChange={(e) => setData(e)} /> 
+          </fieldset> 
           <button className="btn btn-primary" onClick={(e) => {
             e.preventDefault();
             window.scrollTo(0, 0);

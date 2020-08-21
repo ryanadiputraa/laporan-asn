@@ -7,11 +7,11 @@ import { Alert, Card, CardTitle, CardBody } from 'reactstrap';
 const Login = () => {
 
   useEffect(() => {
-    if (window.error_message !== 'None') {
+    if (window.message !== 'None') {
       setValid('danger');
-      setMessage(window.error_message);
+      setMessage(window.message);
       setVisible(true);
-      window.error_message = 'None'
+      window.message = 'None'
     }
   }, [])
 

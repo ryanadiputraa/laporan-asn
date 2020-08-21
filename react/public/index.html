@@ -11,13 +11,13 @@
   <script src="https://kit.fontawesome.com/14ff7e2675.js" crossOrigin="anonymous"></script>
   <title>Laporan ASN</title>
   <script>
-    window.name = "{{ name }}"
-    window.nip = "{{ nip }}"
-    window.position = "{{ position }}"
-    window.boss_name = "{{ boss_name }}"
-    window.boss_position = "{{ boss_position }}"
-    window.region = "{{ region }}"
-    window.error_message = "{{ error_message }}"
+    window.name = "{{ current_user.name }}"
+    window.nip = "{{ current_user.nip }}"
+    window.position = "{{ current_user.position }}"
+    window.boss_name = "{{ current_user.boss_name }}"
+    window.boss_position = "{{ current_user.boss_position }}"
+    window.region = "{{ current_user.region }}"
+    window.message = "{{ message }}"
   </script>
 </head>
 
