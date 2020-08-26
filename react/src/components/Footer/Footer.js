@@ -3,7 +3,7 @@ import './Footer.css';
 
 const Footer = () => {
 
-  const webUrl = 'https://laporan-pns.netlify.app/';
+  const webUrl = 'https://laporan-asn.netlify.app/';
 
   return (
     <div className="footer mt-5">
