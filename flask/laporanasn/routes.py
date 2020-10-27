@@ -10,18 +10,23 @@ BASE_URL = 'http://127.0.0.1:5000/'
 
 # RESTFUL API
 class LoginUser(Resource):
-  def get(self, nip, name, position, boss_name, boss_position, region):
+  def get(self, nip, password):
+    account = User.query.filter_by(nip=nip).first()
+    if account is not None and bcrypt.check_password_hash(account.password, password):
+      return {
+        'nip' : account.nip,
+        'name' : account.name,
+        'position' : account.position,
+        'boss_name' : account.boss_name,
+        'boss_position' : account.boss_position,
+        'region' : account.region
+        }
     return {
-      'nip' : nip,
-      'name' : name,
-      'position' : position,
-      'boss_name' : boss_name,
-      'boss_position' : boss_position,
-      'region' : region
-      }
+      'nip' : 'akun tidak ditemukan'
+    }
 
 # Endpoints
-api.add_resource(LoginUser, r'/loginuser/<int:nip>/<string:name>/<string:position>/<string:boss_name>/<string:boss_position>/<string:region>')
+api.add_resource(LoginUser, '/login/<int:nip>/<string:password>')
 
 
 # Routes
@@ -45,13 +50,6 @@ def index(path):
       return redirect('/login')
 
     elif request.form['formtype'] == 'login':
-      nip = request.form['nip']
-      password = request.form['password']
-      account = User.query.filter_by(nip=nip).first()
-      if account is not None and bcrypt.check_password_hash(account.password, password):
-        response = requests.get(BASE_URL + f'loginuser/{account.nip}/{account.name}/{account.position}/{account.boss_name}/{account.boss_position}/{account.region}')
-        print(response.json())
-        return render_template('index.html', account=response.json())
-      return render_template('index.html', message="Akun tidak ditemukan, mohon periksa kembali NIP dan Kata Sandi anda")
+      return redirect(url_for('index'))
 
-  return render_template('index.html', message=request.args.get('message'))
+  return render_template('index.html')

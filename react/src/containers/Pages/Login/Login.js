@@ -6,8 +6,28 @@ import { Alert, Card, CardTitle, CardBody } from 'reactstrap';
 
 const Login = () => {
 
+  const [state, setState] = useState({
+    nip : '',
+    password : ''
+  });
+  const changeState = (e) => {
+    setState({
+      ...state,
+      [e.target.id]: e.target.value
+    })
+  }
+
+  const BASE_URL = 'http://127.0.0.1:5000'
+  const loginUser = () => {
+    fetch(`${BASE_URL}/login/${state.nip}/${state.password}`)
+    // fetch('http://127.0.0.1:5000/login/123456789123456789/password')
+    .then(res => res.json())
+    .then(res => console.log(res))
+    .catch(err => alert(err))
+  }
+
   useEffect(() => {
-    if (window.message !== 'None') {
+    if (window.message.length) {
       setValid('danger');
       setMessage(window.message);
       setVisible(true);
@@ -40,10 +60,10 @@ const Login = () => {
                 <fieldset className="form-group">
                   <input type="text" name="formtype" id="formtype" defaultValue="login" style={{ 'display':'none' }}/>
                   <div className="form-group">
-                    <input type="number" placeholder="NIP" name="nip" id="nip"/>
+                    <input type="number" placeholder="NIP" name="nip" id="nip" onChange={(e) => changeState(e)}/>
                   </div>
                   <div className="form-group">
-                    <input type="password" placeholder="Kata sandi" name="password" id="password"/>
+                    <input type="password" placeholder="Kata sandi" name="password" id="password" onChange={(e) => changeState(e)}/>
                   </div>
                   <div className="form-check">
                     <input type="checkbox" className="form-check-input" name="remember" id="remember"/>
@@ -51,7 +71,7 @@ const Login = () => {
                   </div>
                 </fieldset>
                 <div className="form-group">
-                  <button type="submit" className="btn btn-primary submit">Masuk</button>
+                  <button type="submit" className="btn btn-primary submit" onClick={() => loginUser()}>Masuk</button>
                 </div>
                 <small className="text-muted ml-2">
                   <a href="#">Lupa sandi ?</a>
