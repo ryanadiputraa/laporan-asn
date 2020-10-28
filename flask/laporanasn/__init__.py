@@ -8,6 +8,7 @@ app = Flask(__name__, static_folder='../../react/build/static' , template_folder
 app.config['SECRET_KEY'] = '79d167f27ca336d2876adf2866a07381'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 
+
 api = Api(app)
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)

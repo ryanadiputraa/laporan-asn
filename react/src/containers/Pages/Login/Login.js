@@ -19,11 +19,21 @@ const Login = () => {
 
   const BASE_URL = 'http://127.0.0.1:5000'
   const loginUser = () => {
-    fetch(`${BASE_URL}/login/${state.nip}/${state.password}`)
+    fetch('http://127.0.0.1:5000/login/123456789123456789/password', 
+    // {
+    //   mode: 'no-cors',
+    //   method: 'GET',
+    //   headers: {
+    //     'Accept' : 'application/json',
+    //     'Access-Control-Allow-Origin': '*',
+    //     'Content-Type': 'application/json'
+    //   }
+    // }
+    )
     // fetch('http://127.0.0.1:5000/login/123456789123456789/password')
     .then(res => res.json())
     .then(res => console.log(res))
-    .catch(err => alert(err))
+    .catch(err => console.log(err))
   }
 
   useEffect(() => {
@@ -71,7 +81,10 @@ const Login = () => {
                   </div>
                 </fieldset>
                 <div className="form-group">
-                  <button type="submit" className="btn btn-primary submit" onClick={() => loginUser()}>Masuk</button>
+                  <button type="submit" className="btn btn-primary submit" onClick={(e) => {
+                    loginUser();
+                    e.preventDefault();
+                    }}>Masuk</button>
                 </div>
                 <small className="text-muted ml-2">
                   <a href="#">Lupa sandi ?</a>

@@ -50,6 +50,7 @@ def index(path):
       return redirect('/login')
 
     elif request.form['formtype'] == 'login':
-      return redirect(url_for('index'))
+      return render_template('index.html')
+
 
   return render_template('index.html')
