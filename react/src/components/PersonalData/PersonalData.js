@@ -16,25 +16,25 @@ function PersonalData(props) {
   })
 
   useEffect(() => {
-    if (window.nip) {
+    if (props.state.data) {
       setState({
-        name: window.name,
-        NIP: window.nip,
-        pos: window.position,
-        bossName: window.boss_name,
-        bossPos: window.boss_position,
-        city: window.region 
+        name: props.state.data.name,
+        NIP: props.state.data.NIP,
+        pos: props.state.data.pos,
+        bossName: props.state.data.bossName,
+        bossPos: props.state.data.bossPos,
+        city: props.state.data.city 
       })
     }
     props.savePersonalData({
-      name: window.name,
-      NIP: window.nip,
-      pos: window.position,
-      bossName: window.boss_name,
-      bossPos: window.boss_position,
-      city: window.region
+      name: props.state.data.name,
+      NIP: props.state.data.NIP,
+      pos: props.state.data.pos,
+      bossName: props.state.data.bossName,
+      bossPos: props.state.data.bossPos,
+      city: props.state.data.city
     })
-  }, [window.nip])
+  }, [props])
 
   const setData = (e) => {
     setState({
@@ -94,8 +94,10 @@ function PersonalData(props) {
   )
 }
 
+const mapStateToProps = state => ({ state })
+
 const mapDispatchToProps = dispatch => ({
   savePersonalData: data => dispatch(SET_DATA(data))
 })
 
-export default connect(null, mapDispatchToProps)(PersonalData);
+export default connect(mapStateToProps, mapDispatchToProps)(PersonalData);

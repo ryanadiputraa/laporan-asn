@@ -9,10 +9,11 @@ const globalState = {
     pos: null,
     bossName: null,
     bossPos: null,
-    city: null
+    city: null,
+    message: null
   },
   todos: [],
-  alert: 0
+  alert: 0,
 }
 
 const rootReducer = (state = globalState, action) => {
