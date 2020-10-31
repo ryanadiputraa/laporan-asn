@@ -1,5 +1,5 @@
 from flask import render_template, request, redirect, url_for
-from laporanasn import app, api, db, bcrypt
+from laporanasn import app, api, db, bcrypt, CORS
 from laporanasn.models import User
 from flask_login import login_user
 from flask_restful import Resource
@@ -19,17 +19,17 @@ class LoginUser(Resource):
         'position' : account.position,
         'boss_name' : account.boss_name,
         'boss_position' : account.boss_position,
-        'region' : account.region
+        'region' : account.region,
         }
     return {
-      'nip' : 'akun tidak ditemukan'
+      'message' : 'akun tidak ditemukan'
     }
 
 # Endpoints
 api.add_resource(LoginUser, '/login/<int:nip>/<string:password>')
+cors = CORS(app, resources={r'/login/*': {'origins' : '*'}})
 
-
-# Routes
+# SPA Routes
 @app.route('/', defaults={'path' : ''})
 @app.route('/<path:path>', methods=['GET', 'POST'])
 def index(path):
@@ -49,8 +49,8 @@ def index(path):
       db.session.commit()
       return redirect('/login')
 
-    elif request.form['formtype'] == 'login':
-      return render_template('index.html')
+    elif request.form['formtype'] == 'login':   
+      return redirect(url_for('index'))
 
 
   return render_template('index.html')
