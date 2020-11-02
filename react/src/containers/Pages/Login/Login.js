@@ -1,7 +1,7 @@
 import React, {Fragment, useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './Login.css';
-import { Card, CardTitle, CardBody } from 'reactstrap';
+import { Alert, Card, CardTitle, CardBody } from 'reactstrap';
 import { connect } from 'react-redux';
 import { SET_DATA } from '../../../utils/redux/Action';
 
@@ -34,14 +34,22 @@ const Login = (props) => {
         city: res.region,
         message: res.message
       })
+      if(!res.message) props.history.push('/');
+      else setVisible(true);
     })
-    .catch(err => console.log(err))
+    .catch(err => alert(err))
   }
+
+  const [visible, setVisible] = useState(false);
+  const onDismiss = () => setVisible(false);
 
   return (
     <Fragment>
       <div className="login container mt-4">
         <Card>
+          <Alert color="danger" isOpen={visible} toggle={onDismiss} fade={false}>
+            Gagal masuk! mohon periksa kembali NIP dan password
+          </Alert>
           <CardTitle><h2 className="text-center mt-3">Login</h2></CardTitle>
           <CardBody>
             <div className="content-section">
@@ -60,7 +68,7 @@ const Login = (props) => {
                   </div>
                 </fieldset>
                 <div className="form-group">
-                  <button type="submit" className="btn btn-primary submit" onClick={(e) => {
+                  <button className="btn btn-primary submit" onClick={(e) => {
                     loginUser(props);
                     e.preventDefault();
                     }}>Masuk</button>
