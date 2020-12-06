@@ -1,12 +1,72 @@
 # Laporan ASN
 
-Web app for goverment employees to create daily report. Convert user input into pdf format. Using Redux to store data and pass it into other React component, jspdf-autable for formatting table, and jspdf to convert data input pdf. Using Flask as backend with route to catch single page application, and store user account in database.
+Web app for goverment employees to create daily report, convert user input into report pdf format.
 
-## Technologies used
+# Tech Stack
 
-- Flask
-- Flask-SQLAlchemy
-- React
-- Redux
-- jspdf
-- jspdf-autotable 
+- Frontend : React
+- Backend : NodeJS
+- Database : MongoDB
+
+# API Spec
+
+## Login
+
+Request :
+- Method : POST
+- EndPoint : `api/login`
+- Header : 
+    - Content-Type : application/json
+    - Accept : application/json
+- Body :
+```json
+{
+    "nip": "Number",
+    "password": "String"
+}
+```
+
+Response :
+```json
+{
+    "code": "Number",
+    "status": "String",
+    "data": {
+        "nip": "Number",
+        "name": "String",
+        "pos": "String",
+        "bossName": "String",
+        "bossPos": "String",
+        "city": "String"
+    }
+}
+```
+
+## Register
+
+Request :
+- Method : POST
+- EndPoint : `api/register`
+- Header : 
+    - Content-Type : application/json
+    - Accept : application/json
+- Body :
+```json
+{
+    "nip": "Number",
+    "password": "String",
+    "name": "String",
+    "pos": "String",
+    "bossName": "String",
+    "bossPos": "String",
+    "city": "String"
+}
+```
+
+Response :
+```json
+{
+    "code": "Number",
+    "status": "String"
+}
+```
