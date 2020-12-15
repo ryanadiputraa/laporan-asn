@@ -1,13 +1,20 @@
 const express = require('express');
 const app = express();
 const morgan = require('morgan');
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
+const asnRoutes = require('./api/routes/asn');
 
 // logging message and body parser
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+// connect to MongoDB
+mongoose.connect('mongodb://ryan:ryanrap@asn-shard-00-00.xwixw.mongodb.net:27017,asn-shard-00-01.xwixw.mongodb.net:27017,asn-shard-00-02.xwixw.mongodb.net:27017/test?ssl=true&replicaSet=atlas-nrs48e-shard-0&authSource=admin&retryWrites=true&w=majority', {
+    useNewUrlParser: true, useUnifiedTopology: true
+});
+mongoose.Promise = global.Promise;
 
 
 // handling CORS
@@ -21,6 +28,8 @@ app.use((req, res, next) => {
     next();
 });
 
+// Routes
+app.use('/asn/', asnRoutes);
 
 // handle errors (not found)
 app.use((req, res, next) => {

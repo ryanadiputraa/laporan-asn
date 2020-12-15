@@ -14,7 +14,7 @@ Web app for goverment employees to create daily report, convert user input into 
 
 Request :
 - Method : POST
-- EndPoint : `api/login`
+- EndPoint : `asn/login`
 - Header : 
     - Content-Type : application/json
     - Accept : application/json
@@ -46,7 +46,7 @@ Response :
 
 Request :
 - Method : POST
-- EndPoint : `api/register`
+- EndPoint : `asn/register`
 - Header : 
     - Content-Type : application/json
     - Accept : application/json
@@ -54,6 +54,7 @@ Request :
 ```json
 {
     "nip": "Number",
+    "email": "String",
     "password": "String",
     "name": "String",
     "pos": "String",
