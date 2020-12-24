@@ -66,7 +66,7 @@ const rootReducer = (state = globalState, action) => {
 
         state.todos.map(todo => {
           bodyData[i] = [todo.id, '', todo.time, todo.todo, todo.info];
-          return i++
+          return i++;
         })
         bodyData[0] = [state.todos[0].id, state.date, state.todos[0].time, state.todos[0].todo, state.todos[0].info]
 

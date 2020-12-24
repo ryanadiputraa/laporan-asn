@@ -22,17 +22,11 @@ function AddTodo(props) {
     })
   }
 
-  const generateNewId = () => {
-    setState({
-      ...state,
-      id: state.id + 1
-    })
-  }
-
   const clearInput = (...inputs) => {
     inputs.map(input => {
       input.value = null;
       return setState({
+        id: state.id + 1,
         time: null,
         todo: null,
         info: null
@@ -51,7 +45,6 @@ function AddTodo(props) {
           <input type="text" placeholder="keterangan" id="info" onChange={setInputtoState} />
           <button className="btn btn-primary add-todo" onClick={() => {
             window.scrollTo(0, 540);
-            generateNewId();
             props.addTodos(state);
             clearInput(
               document.querySelector('#time'),

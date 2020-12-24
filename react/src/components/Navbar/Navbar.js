@@ -32,14 +32,6 @@ const Navbar = () => {
           toggleNavbar();
           toggleHam();
         }}>Bantuan</NavLink>
-        <NavLink className="nav-link" to="/register" onClick={() => {
-          toggleNavbar();
-          toggleHam();
-        }}>Daftar</NavLink>
-        <NavLink className="nav-link" to="/login" onClick={() => {
-          toggleNavbar();
-          toggleHam();
-        }}>Login</NavLink>
       </div>
     </div>
   )

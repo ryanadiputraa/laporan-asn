@@ -9,7 +9,7 @@
   height: 20em;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 .personal-data-container form fieldset {
