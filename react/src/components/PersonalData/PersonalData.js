@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './PersonalData.css';
 import { Alert, Card, CardTitle, CardBody } from 'reactstrap';
 import { connect } from 'react-redux';
@@ -14,27 +14,6 @@ function PersonalData(props) {
     bossPos: '',
     city: ''
   })
-
-  useEffect(() => {
-    if (props.state.data) {
-      setState({
-        name: props.state.data.name,
-        NIP: props.state.data.NIP,
-        pos: props.state.data.pos,
-        bossName: props.state.data.bossName,
-        bossPos: props.state.data.bossPos,
-        city: props.state.data.city 
-      })
-    }
-    props.savePersonalData({
-      name: props.state.data.name,
-      NIP: props.state.data.NIP,
-      pos: props.state.data.pos,
-      bossName: props.state.data.bossName,
-      bossPos: props.state.data.bossPos,
-      city: props.state.data.city
-    })
-  }, [props])
 
   const setData = (e) => {
     setState({
