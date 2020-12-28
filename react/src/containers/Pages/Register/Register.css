@@ -1,0 +1,25 @@
+.register .register-field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto 48px auto;
+}
+
+.register .form-group {
+    width: 90%;
+}
+
+.register .form-group:last-child {
+    width: auto;
+}
+
+#name, #nip, #pos, #bossName, #bossPos, #city, #password, #confirmPassword {
+    width: 100%;
+}
+
+
+@media screen and (min-width: 581px) {
+    .register {
+        padding-top: 84px;
+    }
+}

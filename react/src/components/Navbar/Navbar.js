@@ -28,10 +28,18 @@ const Navbar = () => {
         <div className="ham"></div>
       </div>
       <div className="nav-links">
-        <NavLink className="nav-link" to="/help" onClick={() => {
+        <NavLink className="nav-link" to="/login" onClick={() => {
           toggleNavbar();
           toggleHam();
-        }}>Bantuan</NavLink>
+        }}>Masuk</NavLink>
+        <NavLink className="nav-link" to="/register" onClick={() => {
+          toggleNavbar();
+          toggleHam();
+        }}>Daftar</NavLink>
+        <NavLink className="nav-link" to="/account" onClick={() => {
+          toggleNavbar();
+          toggleHam();
+        }}>Akun</NavLink>
       </div>
     </div>
   )
