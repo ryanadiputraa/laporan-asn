@@ -34,6 +34,7 @@ const Register = () => {
                 <fieldset className="form-group register-field">
                 <div className="form-group">
                     <input type="text" placeholder="Nama Lengkap" name="name" id="name" onChange={(e) => changeState(e)}/>
+                    
                   </div>
                   <div className="form-group">
                     <input type="number" placeholder="NIP" name="nip" id="nip" onChange={(e) => changeState(e)}/>
