@@ -53,7 +53,6 @@ router.post('/register', (req, res, next) => {
                     } else {
                         const asn = new ASN({
                             nip: req.body.nip,
-                            email: req.body.email,
                             password: hash,
                             name: req.body.name,
                             pos: req.body.pos,

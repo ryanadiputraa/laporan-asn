@@ -2,6 +2,8 @@ import React, {Fragment, useState, useRef, useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './Register.css';
 import { Card, CardTitle, CardBody } from 'reactstrap';
+import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 
 const Register = () => {
 
@@ -15,9 +17,31 @@ const Register = () => {
     password : '',
     confirmPassword: ''
   });
-  
-  const registerAccount = () => {
-    console.log(state);
+
+  const history = useHistory();
+  const API_URL = 'http://localhost:8000';
+  const registerAccount = e => {
+    e.preventDefault();
+    axios.post(`${API_URL}/asn/register`, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      }, 
+      body : {
+        "nip": state.nip,
+        "password": state.password,
+        "name": state.name,
+        "pos": state.pos,
+        "bossName": state.bossName,
+        "bossPos": state.bossPos,
+        "city": state.city
+      }
+    }) 
+    .then(res => console.log(res))
+    .catch(err => {
+      history.push('/');
+      console.log(err);
+    })
   }
 
   const changeState = e => {
@@ -71,7 +95,7 @@ const Register = () => {
           <CardTitle><h2 className="text-center mt-3">Daftar</h2></CardTitle>
           <CardBody>
             <div className="content-section">
-              <form>
+              <form onSubmit={registerAccount}>
                 <fieldset className="form-group register-field">
                   <div className="form-group">
                     <input type="text" placeholder="Nama Lengkap" name="name" id="name" onChange={e => changeState(e)}/>
@@ -117,7 +141,7 @@ const Register = () => {
                     </div>
                   </div>
                   <div className="form-group">
-                    <button className="btn btn-primary submit" ref={registerButtonRef} disabled={!state.isValid} onClick={registerAccount}>Daftar</button>
+                    <button type="submit" className="btn btn-primary submit" ref={registerButtonRef} disabled={!state.isValid}>Daftar</button>
                   </div>
                 </fieldset>
               </form>
