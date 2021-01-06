@@ -29,7 +29,7 @@ const Register = () => {
 
   useEffect(() => {
     const isDataValid = () => {
-      state.name.length !== 0 && state.nip.length === 18 && state.pos.length !== 0 && state.bossName.length !== 0 && state.bossPos.length !== 0 && state.city.length !== 0 && state.password === state.confirmPassword ? (
+      state.name.length !== 0 && state.nip.length === 18 && state.pos.length !== 0 && state.bossName.length !== 0 && state.bossPos.length !== 0 && state.city.length !== 0 && state.password.length > 0 && state.confirmPassword.length > 0 && state.password === state.confirmPassword ? (
         registerButtonRef.current.disabled = false
       ) : (
         registerButtonRef.current.disabled = true
@@ -71,13 +71,13 @@ const Register = () => {
           <CardTitle><h2 className="text-center mt-3">Daftar</h2></CardTitle>
           <CardBody>
             <div className="content-section">
-              <form action="/login" method="POST">
+              <form>
                 <fieldset className="form-group register-field">
                   <div className="form-group">
                     <input type="text" placeholder="Nama Lengkap" name="name" id="name" onChange={e => changeState(e)}/>
                   </div>
                   <div className="form-group">
-                    <input type="number" placeholder="NIP" name="nip" id="nip" onChange={e => {
+                    <input type="number" placeholder="NIP" min="0" name="nip" id="nip" onChange={e => {
                       changeState(e);
                       isNipValid(e);
                     }}/>
@@ -111,17 +111,13 @@ const Register = () => {
                     <input type="password" ref={confirmPasswordRef} placeholder="Konfirmasi Kata sandi" name="confirmPassword" id="confirmPassword" onChange={e => {
                       changeState(e);
                       isPasswordMatch();
-                      console.log(state);
                     }}/>
                     <div className="invalid-feedback" id="confirmPassword-feedback" ref={confirmPasswordFeedbackRef}>
                       <span>Kata sandi berbeda</span>
                     </div>
                   </div>
                   <div className="form-group">
-                    <button className="btn btn-primary submit" ref={registerButtonRef} disabled={!state.isValid} onClick={e => {
-                      e.preventDefault();
-                      registerAccount();
-                      }}>Daftar</button>
+                    <button className="btn btn-primary submit" ref={registerButtonRef} disabled={!state.isValid} onClick={registerAccount}>Daftar</button>
                   </div>
                 </fieldset>
               </form>
